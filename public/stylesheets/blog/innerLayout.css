@@ -1,0 +1,13 @@
+.mce-content-body table caption,.mce-content-body table td,.mce-content-body table th{
+    padding:15px 7px;
+    border:1px solid black;
+    font:inherit;
+}
+
+.mce-content-body img {
+    width:300px;
+}
+
+.mce-content-body table{
+    width:85%;
+}

@@ -1,0 +1,27 @@
+
+.list-group {
+    width: 60%;
+    padding-left: 0;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#listWithHandle i {
+    display: block;
+    cursor: pointer;
+    color: #c00;
+    top: 10px;
+    right: 40px;
+    position: absolute;
+    font-style: normal;
+}
+
+#listWithHandle input {
+    display: block;
+    cursor: pointer;
+    color: #c00;
+    top: 10px;
+    right: 100px;
+    position: absolute;
+    font-style: normal;
+}

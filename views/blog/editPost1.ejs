@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <title>Cementify - Approve blog</title>
+    <meta name="description" content="Pedesa is a free magazine HTML theme"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <script src="/js/common/jquery.min.js"></script> <!-- js for jquery -->
+    <script src="/js/blog/editPost1/form.js"></script> <!-- js for the form - handles form validation and tooltip and floating stuff -->
+    <link rel="stylesheet" href="/css/common/reset.css"><!-- css for reset  -->
+    <link rel="stylesheet" type="text/css" href="/bower/sir-trevor-js/sir-trevor.css"></link><!-- css for sir trevor -->
+    <link rel="stylesheet" type="text/css" href="/css/blog/editPost1/captioned-image.css"/><!-- css for captioned image block -->
+    <link rel="stylesheet" type="text/css" href="/css/blog/editPost1/sir-trevor-custom.css"></link><!-- css for sir trevor customization -->
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"></link><!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" type="text/css" href="/css/blog/form.css"></link> <!-- css for text editor and form for submission , including the tooltip stuff-->
+    <link rel="stylesheet" href="/css/blog/editPost/sortable.css"><!-- css for todo list for selecting the images -->
+    <script src="/js/blog/editPost/sortable.js"></script> <!-- js for the todo list with images -->    
+    <link rel="stylesheet" type="text/css" href="/css/common/tooltipster.css"></link> <!-- css for tooltipster -->
+    <link rel="stylesheet" href="/css/common/sweetAlert.css"><!-- css for sweet alert -->
+
+</head>
+
+<body>
+    <form method="post" action="/blog/writePost1">
+        <h1 class="heading">Change Blog Title</h1>
+
+        <div class="cd-normal-form floating-labels">
+            <fieldset>
+
+                <div class="icon">
+                    <label class="cd-label" for="cd-title">Title</label>
+                    <input class="user myfield-title required" type="text" name="cd-title" id="cd-title" type="text" aria-describedby="myfield_description">
+                    <span id="myfield_description" role="tooltip">Please insert your title here</span>
+                </div>                          
+
+            </fieldset>
+        </div>
+
+        <h1 class="heading">Change your blog entry below</h1>        
+        <textarea class="js-st-instance">
+
+        </textarea>     
+
+        <section>
+            <h1 class="heading">Enter Blog Details</h1>                  
+            <div class="cd-normal-form floating-labels">
+
+
+                <fieldset>
+                    <legend>Category</legend>
+
+                    <div>
+
+                        <p class="cd-select icon">
+                            <select class="category" name="category" >
+                                <option value="" >Select an option</option>
+                                <option value="0">Carpenter</option>
+                                <option value="1">Carpenter</option>
+                                <option value="2">Carpenter</option>
+                                <option value="3">Carpenter</option>
+                            </select>
+                            <span id="myfield_description" role="tooltip">Please select an option</span>
+
+                        </p>
+                    </div>
+
+                    <legend>Subcategory</legend>
+
+                    <div>
+
+                        <p class="cd-select icon">
+                            <select class="subcategory" name="subcategory">
+                                <option value="" >Select an option</option>
+                                <option value="0">Door</option>
+                                <option value="1">Window</option>
+                                <option value="2">Cabinet</option>
+                                <option value="3">Floor</option>
+                            </select>
+                            <span id="myfield_description" role="tooltip">Please select an option</span>
+                        </p>
+                    </div>
+                    <fieldset>
+                        <legend>Your Info</legend>
+                        <div class="icon">
+                            <label class="cd-label" for="cd-name">Name</label>
+                            <input class="user myfield-name required" type="text" name="cd-name" id="cd-name" type="text" aria-describedby="myfield_description">
+                            <span id="myfield_description" role="tooltip">Please insert your name here</span>
+                        </div> 
+                        <div class="icon">
+                            <label class="cd-label" for="cd-textarea">About You</label>
+                            <textarea class="message myfield-about  required" name="cd-textarea" id="cd-textarea"></textarea>
+                            <span id="myfield_description" role="tooltip">Please insert your description here</span>
+                        </div>                        
+                    </fieldset>
+                </fieldset>
+            </div>
+
+            <fieldset>
+                <legend style="text-align: center;">Delete / Reorder / Select Cover Photo :</legend>
+            </fieldset>
+            <!-- List with handle -->
+            <div id="listWithHandle" class="list-group">
+            <div class="list-group-item">
+              <!-- <span class="glyphicon glyphicon-move" aria-hidden="true"></span> -->
+              <img src="http://placehold.it/350x150">
+              <input type="radio" name="gender" value="female">
+              <i class="js-remove">✖</i>
+            </div>
+            <div class="list-group-item">
+              <!-- <span class="glyphicon glyphicon-move" aria-hidden="true"></span> -->
+              <img src="http://placehold.it/350x151">
+              <input type="radio" name="gender" value="female">
+              <i class="js-remove">✖</i>
+            </div>
+            <div class="list-group-item">
+              <!-- <span class="glyphicon glyphicon-move" aria-hidden="true"></span> -->
+              <img src="http://placehold.it/350x152">
+              <input type="radio" name="gender" value="female">
+              <i class="js-remove">✖</i>
+            </div>
+            </div>               
+
+            <div class="cd-normal-form floating-labels" >
+                <div>
+                    <input type="submit" value="Update Blog"></input>                    
+                </div>
+            </div>
+        </section>            
+ 
+        <input class = "submit" type="submit" value="Submit">
+    </form>
+
+    <div class = "output"></div>
+
+</body>
+
+
+<script type="text/javascript">
+    var isLoggedIn = <%- JSON.stringify(isLoggedIn) %>; 
+    var blogContent = <%- (content) %>; 
+    var contentForSirTrevor = blogContent[0]["paragraphs"];
+    // console.log(JSON.stringify(contentForSirTrevor));
+    blogContent = blogContent[0];
+    // console.log(JSON.stringify(blogContent));
+    var blogId = blogContent.blogId; 
+    var sirTrevorData = {};
+
+    var byId = function (id) { return document.getElementById(id); };
+
+    Sortable.create(byId('listWithHandle'), {
+        // handle: '.glyphicon-move',
+        animation: 150,
+        filter: '.js-remove',
+        onFilter: function (evt) {
+          evt.item.parentNode.removeChild(evt.item);
+        }
+
+    });    
+
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="/css/blog/editPost1/write1.css"></link> <!-- css for the text editor and form for submission -->
+<script src="/js/common/sweetAlert.js"></script><!-- js for sweet alert -->
+<script type="text/javascript" src="/bower/sir-trevor-js/sir-trevor.js"></script>  <!-- js for sir trevor /-->
+<script type="text/javascript" src="/js/blog/editPost1/captioned-image.js"></script><!-- js for captioned image block -->
+<script type="text/javascript" src="/js/blog/editPost1/ordered-list.js"></script><!-- js for ordered list block -->
+
+<script src="/js/blog/editPost1/sir-trevor-custom.js"></script> <!-- js for customizing sir trevor -->
+<script src="/js/common/tooltipster.js"></script> <!-- js for tooltipster -->
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

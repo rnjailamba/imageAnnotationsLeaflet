@@ -1,0 +1,61 @@
+/* --------------------------------
+
+Tiny MCE
+
+-------------------------------- */
+
+.mce-tinymce  {
+    margin:auto;
+}
+.heading{
+    text-align:center;
+}
+
+
+/* --------------------------------
+
+Image upload area
+
+-------------------------------- */
+
+.imageUpload legend {
+    border-bottom: 1px solid #ecf0f1;
+    line-height: inherit;
+    color: #333;
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* --------------------------------
+
+Signin Signup Signout nav
+
+-------------------------------- */
+
+
+ul.main-nav {
+    padding: 0;
+}
+
+ul.main-nav li {
+    display: inline;
+}
+
+ul.main-nav li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color:black;
+
+}
+
+ul.main-nav li a:hover {
+    background-color: orange;
+}

@@ -1,0 +1,52 @@
+/* --------------------------------
+
+HEADING
+
+-------------------------------- */
+
+.heading{
+    background: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.headingDiv {
+    text-align: center;
+}
+
+.headingspan {
+    background: #f2ca27;
+    padding: 20px;
+    font-weight: 500;
+    line-height: 1.1;    
+    font-size: 36px;
+}
+
+
+
+/* --------------------------------
+
+Signin Signup Signout nav
+
+-------------------------------- */
+
+
+ul.main-nav {
+    padding: 0;
+}
+
+ul.main-nav li {
+    display: inline;
+}
+
+ul.main-nav li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color:black;
+
+}
+
+ul.main-nav li a:hover {
+    background-color: orange;
+}
