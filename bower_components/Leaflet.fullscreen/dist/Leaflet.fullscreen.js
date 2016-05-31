@@ -5,7 +5,7 @@ L.Control.Fullscreen = L.Control.extend({
             'false': 'View Fullscreen',
             'true': 'Exit Fullscreen'
         },
-        pseudoFullscreen:true
+        
 
     },
 
