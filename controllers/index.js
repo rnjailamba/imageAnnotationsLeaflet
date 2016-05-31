@@ -22,6 +22,15 @@ router.get('/', function(req, res){
 });
 
 
+// IMAGE
+// ==============================================
+router.get('/image', function(req, res){
+
+    res.render('index/image', { title: 'Express' });
+
+});
+
+
 
 
 var justPrintSomething = function(){
