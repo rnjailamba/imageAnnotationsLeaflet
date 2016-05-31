@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');// set up ejs for templating
 app.use('/jquery', modules.express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/bootstrap', modules.express.static(__dirname + '/node_modules/bootstrap/dist/'));
 app.use('/node_modules', modules.express.static(__dirname + '/node_modules/'));
-app.use('/bower', modules.express.static(__dirname + '/bower_components/'));
+app.use('/bower_components', modules.express.static(__dirname + '/bower_components/'));
 app.use('/css', modules.express.static(__dirname + '/public/stylesheets/'));
 app.use('/js', modules.express.static(__dirname + '/public/javascripts/'));
 app.use('/img', modules.express.static(__dirname + '/public/images/'));
