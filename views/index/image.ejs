@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="demoapp">
   <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/Leaflet.fullscreen/dist/Leaflet.fullscreen.js"></script>
     <script src="bower_components/ui-leaflet/dist/ui-leaflet.min.js"></script>
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/Leaflet.fullscreen/dist/leaflet.fullscreen.css" />
+
     <script>
         var app = angular.module("demoapp", ['ui-leaflet']);
         app.controller("LayersImageOverlayController", [ "$scope", "$log", "leafletData", "leafletBoundsHelpers", function($scope, $log, leafletData, leafletBoundsHelpers) {
-            var maxBounds = leafletBoundsHelpers.createBoundsFromArray([[-500, -500], [500, 500]]);
+            var maxBounds = leafletBoundsHelpers.createBoundsFromArray([[-400, -400], [400, 400]]);
             angular.extend($scope, {
                 defaults: {
-                  scrollWheelZoom: false,
+                  scrollWheelZoom: true,
                   crs: 'Simple',
-                  maxZoom: 2
+                  maxZoom: 4
                 },
                 center: {
                     lat: 0,
@@ -29,7 +33,7 @@
                             name: 'Andes',
                             type: 'imageOverlay',
                             url: 'img/floor.jpg',
-                            bounds: [[-500, -500], [500, 500]],
+                            bounds: [[-400, -400], [400, 400]],
                             layerParams: {
                                 showOnSelector: false,
                                 noWrap: true,
@@ -38,13 +42,18 @@
                         }
                     }
 
+                },
+                controls: {
+                    fullscreen: {
+                        position: 'topleft'
+                    }
                 }
             });
        }]);
     </script>
   </head>
   <body ng-controller="LayersImageOverlayController">
-    <leaflet lf-center="center" defaults="defaults" layers="layers" maxBounds="maxBounds" height="1000px" width="1000px" ></leaflet>
+    <leaflet lf-center="center" controls="controls" defaults="defaults" layers="layers" maxBounds="maxBounds" height="800px" width="800px" ></leaflet>
     <h1>Layer with image overlay and maxBounds</h1>
   </body>
 </html>
