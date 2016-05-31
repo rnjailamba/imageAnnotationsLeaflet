@@ -8,6 +8,8 @@
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script src="bower_components/Leaflet.fullscreen/dist/Leaflet.fullscreen.js"></script>
     <script src="bower_components/ui-leaflet/dist/ui-leaflet.min.js"></script>
+    <script src="bower_components/leaflet-draw/dist/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="bower_components/leaflet-draw/dist/leaflet.draw.css" />
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="bower_components/Leaflet.fullscreen/dist/leaflet.fullscreen.css" />
 
@@ -40,6 +42,16 @@
                                 attribution: 'Creative Commons image found <a href="http://www.flickr.com/photos/c32/8025422440/">here</a>'
                             }
                         }
+                    },
+                    overlays: {
+                        draw: {
+                            name: 'draw',
+                            type: 'group',
+                            visible: true,
+                            layerParams: {
+                                showOnSelector: false
+                            }
+                        }
                     }
 
                 },
@@ -47,8 +59,20 @@
                     fullscreen: {
                         position: 'topleft',
                         pseudoFullscreen:true
-                    }
+                    },
+                    draw: {}
                 }
+            });
+
+            leafletData.getMap().then(function(map) {
+                leafletData.getLayers().then(function(baselayers) {
+                   var drawnItems = baselayers.overlays.draw;
+                   map.on('draw:created', function (e) {
+                     var layer = e.layer;
+                     drawnItems.addLayer(layer);
+                     console.log(JSON.stringify(layer.toGeoJSON()));
+                   });
+                });
             });
        }]);
     </script>
